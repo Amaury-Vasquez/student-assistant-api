@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: student_assistant_db
+    environment:
+      - POSTGRES_DB=student-assistant
+      - POSTGRES_USER=mau
+      - POSTGRES_PASSWORD=udntknowm3
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=amaury.vasquezenriquez@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=1388882710
+    ports:
+      - 5050:80
